@@ -11,14 +11,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $username   = $input['username'];
     $password   = md5($input['password']);
     $fullname     = $input['fullname'];
-    $email 		 =  $input['email'];
-    $tel 		 		 =  $input['tel'];
-    $status		 = $input['status'];
+    $email 		    =  $input['email'];
+    $tel 		 	   =  $input['tel'];
     
     // เช็คค่าว่าง
-    if(!empty($username) and !empty($password) and !empty($fullname) and !empty($email) and !empty($tel) and !empty($status)){
+    if(!empty($username) and !empty($password) and !empty($fullname) and !empty($email) and !empty($tel)){
         $sql = "INSERT INTO users(username,password,fullname,email,tel,status) 
-        			VALUES('$username','$password','$fullname',' $email','$tel','$status')";
+        			VALUES('$username','$password','$fullname','$email','$tel','0')";
         $query = mysqli_query($connect,$sql);
         $last_insert_id = mysqli_insert_id($connect);
 
